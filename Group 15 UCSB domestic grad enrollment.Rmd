@@ -20,7 +20,11 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 
 ```{r}
 ggplot(data = ucsb_grad, aes(x = year_abbr, y = domestic_enrollment, color = ethnicity)) +
-  geom_col() +
-  scale_fill_discrete()
+  geom_col(position = "fill") +
+  scale_fill_gradient() +
+  labs(x = "Year", y = "Domestic enrollment", title = "UCSB Domestic Graduate Student Ethnicity") +
+  theme_minimal()
 ```
 
+**Figure 1:** Breakdown of UCSB domestic graduate student ethnicity from 2008-2019.
+Data: "Campus Profiles." UC Santa Barbara Office of Budget & Planning." https://bap.ucsb.edu/institutional-research/campus-profiles 
