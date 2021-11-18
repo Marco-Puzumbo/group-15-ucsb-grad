@@ -19,11 +19,17 @@ ucsb_grad <- read_csv(here("data", "ucsb_grad_data.csv"))
 ```
 
 ```{r}
-ggplot(data = ucsb_grad, aes(x = year_abbr, y = domestic_enrollment, color = ethnicity)) +
-  geom_col(position = "fill") +
+ggplot(data = ucsb_grad, aes(x = year_abbr, y = domestic_enrollment, color = ethnicity, fill = ethnicity)) +
+  geom_col(position = "fill", width = .8) +
   scale_fill_gradient() +
   labs(x = "Year", y = "Domestic enrollment", title = "UCSB Domestic Graduate Student Ethnicity") +
-  theme_minimal()
+  theme_minimal()+
+  scale_color_manual(values = c("orchid","lightgoldenrod","cyan",
+                                "plum","indianred","seagreen2","salmon",
+                                "tan","turquoise3","lavender"))+
+   scale_fill_manual(values = c("orchid","lightgoldenrod","cyan",
+                                "plum","indianred","seagreen2","salmon",
+                                "tan","turquoise3","lavender"))
 ```
 
 **Figure 1:** Breakdown of UCSB domestic graduate student ethnicity from 2008-2019.
